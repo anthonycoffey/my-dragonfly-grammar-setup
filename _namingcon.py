@@ -73,9 +73,9 @@ class ProgrammingNamingConventions(MappingRule):
                   "var <command> <symbol>":             Function(camel_back) + Text("%(symbol)s"),
                   "<symbol> var <command>":              Text("%(symbol)s") + Function(camel_back),
                         
-                  "camelback <command>":                  Function(camel_back),
-                  "camelback <command> <symbol>":             Function(camel_back) + Text("%(symbol)s"),
-                  "<symbol> camelback <command>":              Text("%(symbol)s") + Function(camel_back),
+                  "camel case <command>":                  Function(camel_back),
+                  "camel case <command> <symbol>":             Function(camel_back) + Text("%(symbol)s"),
+                  "<symbol> camel case <command>":              Text("%(symbol)s") + Function(camel_back),
 
                   #this command capitalizes the 1st letter of each word and removes spaces   example: TestValue
                   "camel <command>":                      Function(camel_format),

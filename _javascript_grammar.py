@@ -1,8 +1,7 @@
 # Author:Brandon Lovrien
 # This script includes commands that are to be used for JavaScript programming
 
-from dragonfly import (Grammar, CompoundRule, Dictation, RuleRef, DictList, DictListRef, Text, Key, AppContext,
-                       MappingRule, Function, Sequence, Mimic)
+from dragonfly import *
 
 
 def doSomethingToCommand(command):
@@ -67,8 +66,7 @@ class JavaScriptES6Syntax(MappingRule):
         "constant": Text("const "),
         "let": Text("let "),
         "import statement": Text("import {} from \"\";"),
-        "export statement": Text("export default {}"),
-        "class <command>": Text("class") + Function(camel_format) + Text("{") + Key("enter") + Key("enter") + Text("}"),
+        "export statement": Text("export default {}")
 
     }
 
@@ -136,7 +134,7 @@ JavaScriptGrammar.add_rule(JavaScriptComparisonOperators())
 JavaScriptGrammar.add_rule(JavaScriptArithmeticOperators())
 JavaScriptGrammar.add_rule(JavaScriptAssignmentOperators())
 JavaScriptGrammar.add_rule(JavaScriptDisabler())
-JavaScriptGrammar.add_rule(JavaScriptES6Syntax)
+JavaScriptGrammar.add_rule(JavaScriptES6Syntax())
 JavaScriptGrammar.load()
 JavaScriptGrammar.disable()
 

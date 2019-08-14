@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48bf3ed1-9ade-4b6b-9b78-a7f4a9415e13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_terminal_grammar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_javascript_grammar.py" beforeDir="false" afterPath="$PROJECT_DIR$/_javascript_grammar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_namingcon.py" beforeDir="false" afterPath="$PROJECT_DIR$/_namingcon.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +62,8 @@
       <updated>1565556765642</updated>
       <workItem from="1565556770252" duration="2991000" />
       <workItem from="1565588621828" duration="3010000" />
-      <workItem from="1565779605986" duration="1934000" />
+      <workItem from="1565779605986" duration="2026000" />
+      <workItem from="1565781977951" duration="1044000" />
     </task>
     <servers />
   </component>

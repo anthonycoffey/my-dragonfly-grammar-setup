@@ -9,22 +9,13 @@ def doSomethingToCommand(command):
     newCommand.execute()
 
 
-def camel_format(command):  # Callback when command is spoken.
-    textToPrint = command
-    someString = str(textToPrint)
-    upperString = someString.title()
-    printer = Text(upperString.replace(' ', ''))
-    printer.execute()
-
-
 class JavaScriptEnabler(CompoundRule):
     spec = "Enable JavaScript"  # Spoken form of command.
 
     def _process_recognition(self, node, extras):  # Callback when command is spoken.
         JavaScriptBootstrap.disable()
         JavaScriptGrammar.enable()
-        print
-        "JavaScript grammar enabled"
+        print("JavaScript grammar enabled")
 
 
 class JavaScriptDisabler(CompoundRule):
@@ -33,16 +24,14 @@ class JavaScriptDisabler(CompoundRule):
     def _process_recognition(self, node, extras):  # Callback when command is spoken.
         JavaScriptGrammar.disable()
         JavaScriptBootstrap.enable()
-        print
-        "JavaScript grammar disabled"
+        print("JavaScript grammar disabled")
 
 
 class JavaScriptTestRule(CompoundRule):
     spec = "test JavaScript"  # Spoken form of command.
 
     def _process_recognition(self, node, extras):  # Callback when command is spoken.
-        print
-        "JavaScript grammar tested"
+        print("JavaScript grammar tested")
 
 
 class JavaScriptControlStructures(MappingRule):
@@ -84,7 +73,7 @@ class JavaScriptMiscellaneousStuff(MappingRule):
         "equals": Text(" = "),
         "new": Text("new "),
         "return statement": Text("return "),
-        "log statement": Text("console.log();") + Key("left") + Key("left") + Key("left"),
+        "log statement": Text("console.log({});") + Key("left") + Key("left") + Key("left"),
         "bang": Text("!")
     }
 

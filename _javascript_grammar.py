@@ -37,15 +37,16 @@ class JavaScriptTestRule(CompoundRule):
 class JavaScriptControlStructures(MappingRule):
     mapping = {
         "variable": Text("var "),
-        "function": Text("function functionName() {") + Key("enter") + Key("enter") + Text("}"),
-        "code block": Text("{") + Key("enter") + Key("enter") + Text("}"),
-        "if": Text("if() {") + Key("enter") + Key("enter") + Text("}"),
-        "if else": Text("if() {") + Key("enter") + Key("enter") + Text("}") + Key("enter") + Text("else {") + Key("enter") + Key("enter") + Text("}"),
-        "else if": Text("else if() {") + Key("enter") + Key("enter") + Text("}"),
-        "while loop": Text("while() {") + Key("enter") + Key("enter") + Text("}"),
+        "function": Text("function functionName() {") + Key("enter"),
+        "code block": Text("{") + Key("enter") + Key("enter"),
+        "if": Text("if() {") + Key("enter") + Key("enter"),
+        "if else": Text("if() {") + Key("enter") + Key("enter") + Text("}") + Key("enter") + Text("else {") + Key(
+            "enter"),
+        "else if": Text("else if() {") + Key("enter"),
+        "while loop": Text("while() {") + Key("enter"),
         "do while loop": Text("do {") + Key("enter") + Key("down") + Text("while()"),
-        "for loop": Text("for(let i = 0; i < arr.length; i++) {") + Key("enter") + Key("enter") + Text("}"),
-        "switch statement": Text("switch() {") + Key("enter") + Key("enter") + Text("}"),
+        "for loop": Text("for(let i = 0; i < arr.length; i++) {") + Key("enter"),
+        "switch statement": Text("switch() {") + Key("enter"),
 
     }
 
@@ -54,17 +55,17 @@ class JavaScriptES6Syntax(MappingRule):
     mapping = {
         "constant": Text("const "),
         "let": Text("let "),
-        "import statement": Text("import {} from \"\";"),
-        "export statement": Text("export default {}")
-
+        "import statement": Text("import {} from \"\";") + Key("left") + Key("left"),
+        "export statement": Text("export default {}"),
+        "template literal": Text("``") + Key("left"),
+        "string interpolation": Text("${}") + Key("left")
     }
 
 
 class JavaScriptCommentsSyntax(MappingRule):
     mapping = {
         "comment": Text("// "),
-        "multiline comment": Text("/*") + Key("enter")  # + Key("enter") + Text("*/") + Key("up")
-
+        "multiline comment": Text("/**") + Key("enter")  # + Key("enter") + Text("*/") + Key("up")
     }
 
 
@@ -74,7 +75,20 @@ class JavaScriptMiscellaneousStuff(MappingRule):
         "new": Text("new "),
         "return statement": Text("return "),
         "log statement": Text("console.log({});") + Key("left") + Key("left") + Key("left"),
-        "bang": Text("!")
+        "bang": Text("!"),
+
+    }
+
+
+class JavaScriptVueCommands(MappingRule):
+    mapping = {
+        "view tag": Text("<v-"),
+        "view equals": Text("=\"\""),
+        "view flex": Text("<v-flex "),
+        "view layout": Text("<v-layout "),
+        "view card": Text("<v-card "),
+        "close tag": Text("</"),
+        "print variable": Text("{{}}") + Key("left") + Key("left")
     }
 
 
@@ -93,8 +107,12 @@ class JavaScriptComparisonOperators(MappingRule):
 
 class JavaScriptArithmeticOperators(MappingRule):
     mapping = {
+        "plus": Text(" + "),
         "plus plus": Text("++"),
         "minus minus": Text("--"),
+        "multiply by": Text(" * "),
+        "divide by": Text(" / "),
+        "modulus": Text(" % ")
 
     }
 
@@ -124,6 +142,7 @@ JavaScriptGrammar.add_rule(JavaScriptArithmeticOperators())
 JavaScriptGrammar.add_rule(JavaScriptAssignmentOperators())
 JavaScriptGrammar.add_rule(JavaScriptDisabler())
 JavaScriptGrammar.add_rule(JavaScriptES6Syntax())
+JavaScriptGrammar.add_rule(JavaScriptVueCommands())
 JavaScriptGrammar.load()
 JavaScriptGrammar.disable()
 

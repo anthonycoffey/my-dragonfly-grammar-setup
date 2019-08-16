@@ -31,7 +31,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\coffe\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -64,7 +64,10 @@
       <workItem from="1565588621828" duration="3010000" />
       <workItem from="1565779605986" duration="2026000" />
       <workItem from="1565781977951" duration="1715000" />
-      <workItem from="1565851276078" duration="2609000" />
+      <workItem from="1565851276078" duration="3427000" />
+      <workItem from="1565975534423" duration="91000" />
+      <workItem from="1565977324809" duration="44000" />
+      <workItem from="1565977860586" duration="3219000" />
     </task>
     <servers />
   </component>

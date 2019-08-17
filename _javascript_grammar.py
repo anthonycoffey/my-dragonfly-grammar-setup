@@ -58,7 +58,7 @@ class JavaScriptES6Syntax(MappingRule):
         "import statement": Text("import {} from \"\";") + Key("left") + Key("left"),
         "export statement": Text("export default {}"),
         "template literal": Text("``") + Key("left"),
-        "string interpolation": Text("${}") + Key("left")
+        "string interpolation": Text("${}") + Key("left"),
     }
 
 
@@ -83,12 +83,12 @@ class JavaScriptMiscellaneousStuff(MappingRule):
 class JavaScriptVueCommands(MappingRule):
     mapping = {
         "view tag": Text("<v-"),
-        "view equals": Text("=\"\""),
+        "view equals": Text("=\"\"") + Key("left"),
         "view flex": Text("<v-flex "),
         "view layout": Text("<v-layout "),
-        "view card": Text("<v-card "),
+    "view card": Text("<v-card "),
         "close tag": Text("</"),
-        "print variable": Text("{{}}") + Key("left") + Key("left")
+        "view expression": Text("{{}}") + Key("left") + Key("left")
     }
 
 

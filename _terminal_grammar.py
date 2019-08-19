@@ -7,6 +7,7 @@ from dragonfly import (Grammar, CompoundRule, Dictation, Text, Key, AppContext, 
 class TerminalCommands(MappingRule):
     mapping = {
         "node install": Text("npm install "),
+        "node run": Text("npm run "),
         "start dev server": Text("npm run serve"),
         "restart server": Text("npm run restart"),
         "run production": Text("npm run prod"),

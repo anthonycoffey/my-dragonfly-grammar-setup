@@ -66,21 +66,21 @@ def SpaceFreeFormat(command):   # Callback when command is spoken.
 
 class ProgrammingNamingConventions(MappingRule):
 
-    mapping  = {
+    mapping = {
                     
                     #both of these commands do the same thing in terms of name formatting   example: testValue
                   "var <command>":                  Function(camel_back),
                   "var <command> <symbol>":             Function(camel_back) + Text("%(symbol)s"),
                   "<symbol> var <command>":              Text("%(symbol)s") + Function(camel_back),
                         
-                  "camel case <command>":                  Function(camel_back),
-                  "camel case <command> <symbol>":             Function(camel_back) + Text("%(symbol)s"),
-                  "<symbol> camel case <command>":              Text("%(symbol)s") + Function(camel_back),
+                  "camel <command>":                  Function(camel_back),
+                  "camel <command> <symbol>":             Function(camel_back) + Text("%(symbol)s"),
+                  "<symbol> camel <command>":              Text("%(symbol)s") + Function(camel_back),
 
                   #this command capitalizes the 1st letter of each word and removes spaces   example: TestValue
-                  "camel <command>":                      Function(camel_format),
-                  "camel <command> <symbol>":             Function(camel_format) + Text("%(symbol)s"),
-                  "<symbol> camel <command>":              Text("%(symbol)s") + Function(camel_format),
+                  "pascal <command>":                      Function(camel_format),
+                  "pascal <command> <symbol>":             Function(camel_format) + Text("%(symbol)s"),
+                  "<symbol> pascal <command>":              Text("%(symbol)s") + Function(camel_format),
 
                   #this command replaces spaces between words with underscores  example:test_value
                   "snake case <command>":         Function(middle_underscores),

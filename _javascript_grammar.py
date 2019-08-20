@@ -9,6 +9,23 @@ def doSomethingToCommand(command):
     newCommand.execute()
 
 
+# helper function handling "camelBack"
+def camel_back(command):
+    someString = str(command)
+    lowerString = someString.lower()
+    words = lowerString.split()
+    finalString = ""
+    isFirst = 1
+    for word in words:
+        if isFirst == 1:
+            finalString = finalString + word
+            isFirst = 0
+        else:
+            finalString = finalString + word.title()
+    printer = Text(finalString)
+    printer.execute()
+
+
 class JavaScriptEnabler(CompoundRule):
     spec = "Enable JavaScript"  # Spoken form of command.
 
@@ -36,36 +53,63 @@ class JavaScriptTestRule(CompoundRule):
 
 class JavaScriptControlStructures(MappingRule):
     mapping = {
-        "variable": Text("var "),
-        "function": Text("function functionName() {") + Key("enter"),
         "code block": Text("{") + Key("enter") + Key("enter"),
         "if": Text("if() {") + Key("enter") + Key("enter"),
-        "if else": Text("if() {") + Key("enter") + Key("enter") + Text("}") + Key("enter") + Text("else {") + Key(
-            "enter"),
+        "if else": Text("if() {") + Key("enter") + Key("enter")  + Key("enter") + Text("else {") + Key("enter"),
         "else if": Text("else if() {") + Key("enter"),
         "while loop": Text("while() {") + Key("enter"),
         "do while loop": Text("do {") + Key("enter") + Key("down") + Text("while()"),
         "for loop": Text("for(let i = 0; i < arr.length; i++) {") + Key("enter"),
         "switch statement": Text("switch() {") + Key("enter"),
+        "function <command>": Text("function ") + Function(camel_back) + Text("(){"),
+    }
+
+    extras = [
+        Dictation("command")
+    ]
+
+
+class JavaScriptVariableDeclarations(MappingRule):
+    mapping = {
+        "variable <command>": Text("var ") + Function(camel_back),
+        "local variable <command>": Text("let ") + Function(camel_back),
+        "constant <command>": Text("const ") + Function(camel_back)
 
     }
+
+    extras = [
+        Dictation("command")
+    ]
+
+
+class JavaScriptObjectCommands(MappingRule):
+    mapping = {
+        "method <command>": Function(camel_back) + Text("(){"),
+        "property <command>": Function(camel_back) + Text(": ,") + Key("left"),
+    }
+
+    extras = [
+        Dictation("command")
+    ]
 
 
 class JavaScriptES6Syntax(MappingRule):
     mapping = {
-        "constant": Text("const "),
-        "let": Text("let "),
         "import statement": Text("import {} from \"\";") + Key("left") + Key("left"),
         "export statement": Text("export default {}"),
         "template literal": Text("``") + Key("left"),
         "string interpolation": Text("${") + Key("left"),
+        "fat arrow function": Text("() => {"),
+        "dot then": Text(".then((response)=>{"),
+        "dot catch": Text(".catch((error)=>{"),
+        "dot finally": Text(".finally(()=>{"),
     }
 
 
 class JavaScriptCommentsSyntax(MappingRule):
     mapping = {
         "comment": Text("// "),
-        "multiline comment": Text("/**") + Key("enter")  # + Key("enter") + Text("*/") + Key("up")
+        "multiline comment": Text("/**") + Key("enter")
     }
 
 
@@ -143,6 +187,7 @@ JavaScriptGrammar.add_rule(JavaScriptAssignmentOperators())
 JavaScriptGrammar.add_rule(JavaScriptDisabler())
 JavaScriptGrammar.add_rule(JavaScriptES6Syntax())
 JavaScriptGrammar.add_rule(JavaScriptVueCommands())
+JavaScriptGrammar.add_rule(JavaScriptVariableDeclarations())
 JavaScriptGrammar.load()
 JavaScriptGrammar.disable()
 

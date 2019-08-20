@@ -74,7 +74,6 @@ class JavaScriptVariableDeclarations(MappingRule):
         "variable <command>": Text("var ") + Function(camel_back),
         "local variable <command>": Text("let ") + Function(camel_back),
         "constant <command>": Text("const ") + Function(camel_back)
-
     }
 
     extras = [

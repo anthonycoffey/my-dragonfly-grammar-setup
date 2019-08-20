@@ -187,6 +187,7 @@ JavaScriptGrammar.add_rule(JavaScriptDisabler())
 JavaScriptGrammar.add_rule(JavaScriptES6Syntax())
 JavaScriptGrammar.add_rule(JavaScriptVueCommands())
 JavaScriptGrammar.add_rule(JavaScriptVariableDeclarations())
+JavaScriptGrammar.add_rule(JavaScriptObjectCommands())
 JavaScriptGrammar.load()
 JavaScriptGrammar.disable()
 

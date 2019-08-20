@@ -83,7 +83,7 @@ class JavaScriptVariableDeclarations(MappingRule):
 
 class JavaScriptObjectCommands(MappingRule):
     mapping = {
-        "method <command>": Function(camel_back) + Text("(){"),
+        "method <command>": Function(camel_back) + Text("(){") + Key("left"),
         "property <command>": Function(camel_back) + Text(": ,") + Key("left"),
     }
 
@@ -98,10 +98,10 @@ class JavaScriptES6Syntax(MappingRule):
         "export statement": Text("export default {}"),
         "template literal": Text("``") + Key("left"),
         "string interpolation": Text("${") + Key("left"),
-        "fat arrow function": Text("() => {"),
-        "dot then": Text(".then((response)=>{"),
-        "dot catch": Text(".catch((error)=>{"),
-        "dot finally": Text(".finally(()=>{"),
+        "fat arrow function": Text("() => {") + Key("left"),
+        "dot then": Text(".then((response)=>{") + Key("left"),
+        "dot catch": Text(".catch((error)=>{") + Key("left"),
+        "dot finally": Text(".finally(()=>{") + Key("left"),
     }
 
 
@@ -142,8 +142,8 @@ class JavaScriptComparisonOperators(MappingRule):
         "not equal to": Text("!="),
         "greater than": Text(">"),
         "less than": Text("<"),
-        "greater than or equal to": Text(">="),
-        "less than or equal to": Text("<="),
+        "greater than equal to": Text(">="),
+        "less than equal to": Text("<="),
 
     }
 

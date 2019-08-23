@@ -55,7 +55,7 @@ class JavaScriptControlStructures(MappingRule):
     mapping = {
         "code block": Text("{") + Key("enter") + Key("enter"),
         "if": Text("if() {") + Key("enter") + Key("enter"),
-        "if else": Text("if() {") + Key("enter") + Key("enter")  + Key("enter") + Text("else {") + Key("enter"),
+        "if else": Text("if() {") + Key("enter") + Key("enter") + Key("enter") + Text("else {") + Key("enter"),
         "else if": Text("else if() {") + Key("enter"),
         "while loop": Text("while() {") + Key("enter"),
         "do while loop": Text("do {") + Key("enter") + Key("down") + Text("while()"),
@@ -131,7 +131,8 @@ class JavaScriptVueCommands(MappingRule):
         "view layout": Text("<v-layout "),
         "view card": Text("<v-card "),
         "close tag": Text("</"),
-        "view expression": Text("{{") + Key("left") + Key("left")
+        "view expression": Text("{{"),
+        "view debug": Text("<pre>{{}}</pre>") + Key("left") + Key("left") + Key("left") + Key("left") + Key("left") + Key("left") + Key("left") + Key("left")
     }
 
 

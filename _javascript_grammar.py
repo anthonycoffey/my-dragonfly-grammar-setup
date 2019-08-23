@@ -72,7 +72,7 @@ class JavaScriptControlStructures(MappingRule):
 class JavaScriptVariableDeclarations(MappingRule):
     mapping = {
         "variable <command>": Text("var ") + Function(camel_back),
-        "local variable <command>": Text("let ") + Function(camel_back),
+        "local <command>": Text("let ") + Function(camel_back),
         "constant <command>": Text("const ") + Function(camel_back)
     }
 
